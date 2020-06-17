@@ -1,5 +1,5 @@
 /*
- * Version 0.4.0
+ * Version 0.5.0
  *
  * Made By Robin Kuiper
  * Skype: RobinKuiper.eu
@@ -21,6 +21,10 @@
  * Name: Ammo Goettsch
  * Discord: ammo#7063
  * Roll20: https://app.roll20.net/users/2990964/ammo
+ *
+ * Name: Kyle Broekers
+ * Discord: Cheshire#1092
+ * Roll20: https://app.roll20.net/users/1491687/kyle-b
  */
 
 (function() {
@@ -38,34 +42,35 @@
 
     // these class features are hidden
     const silent_class_features = [
-        'Spellcasting', 
-        'Bonus Proficiency', 
-        'Ability Score Improvement', 
-        'Bonus Cantrip', 
-        'Proficiencies', 
-        'Hit Points', 
-        'Pact Magic', 
-        'Expanded Spell List', 
-        'Druidic', 
-        'Expertise', 
+        'Spellcasting',
+        'Bonus Proficiency',
+        'Ability Score Improvement',
+        'Bonus Cantrip',
+        'Proficiencies',
+        'Hit Points',
+        'Pact Magic',
+        'Expanded Spell List',
+        'Druidic',
+        'Expertise',
         'Oath Spells'
     ];
-   
+
     // these are added by showing the selected options as class features
     const option_class_features = [
         'Maneuvers',
-        'Fighting Style', 
-        'Divine Domain', 
-        'Arcane Tradition', 
-        'Otherworldly Patron', 
-        'Ranger Archetype', 
-        'Druid Circle', 
-        'Sorcerous Origin', 
-        'Monastic Tradition', 
-        'Bardic College', 
-        'Roguish Archetype', 
-        'Sacred Oath', 
-        'Martial Archetype'
+        'Fighting Style',
+        'Divine Domain',
+        'Arcane Tradition',
+        'Otherworldly Patron',
+        'Ranger Archetype',
+        'Druid Circle',
+        'Sorcerous Origin',
+        'Monastic Tradition',
+        'Bardic College',
+        'Roguish Archetype',
+        'Sacred Oath',
+        'Martial Archetype',
+        'Artificer Specialist'
     ];
 
     const weapons = ['Club', 'Dagger', 'Greatclub', 'Handaxe', 'Javelin', 'Light Hammer', 'Mace', 'Quarterstaff', 'Sickle', 'Spear', 'Crossbow, Light', 'Dart', 'Shortbow', 'Sling', 'Battleaxe', 'Flail', 'Glaive', 'Greataxe', 'Greatsword', 'Halberd', 'Lance', 'Longsword', 'Maul', 'Morningstar', 'Pike', 'Rapier', 'Scimitar', 'Shortsword', 'Trident', 'War Pick', 'Warhammer', 'Whip', 'Blowgun', 'Crossbow, Hand', 'Crossbow, Heavy', 'Longbow', 'Net'];
@@ -86,7 +91,7 @@
     const state_name = 'BEYONDIMPORTER';
     const debug = false;
     var spellTargetInAttacks = true;
-    
+
     on('ready', function() {
         checkInstall();
         log(script_name + ' Ready! Command: !beyond');
@@ -111,7 +116,7 @@
         let config = state[state_name][beyond_caller.id].config;
         let initTiebreaker = config.initTieBreaker;
         let languageGrouping = config.languageGrouping;
-        
+
         // if not set, we default to true even without a config reset
         if (config.hasOwnProperty('spellTargetInAttacks')) {
             spellTargetInAttacks = config.spellTargetInAttacks;
@@ -172,9 +177,9 @@
         if(importData === '') {
             return;
         }
-        
+
         let json = importData;
-        let character = JSON.parse(json).character;
+        let character = JSON.parse(json).data;
 
         sendChat(script_name, '<div style="'+style+'">Import of <b>' + character.name + '</b> is starting.</div>', null, {noarchive:true});
 
@@ -223,7 +228,7 @@
                 'base_level': character.classes[0].level
             });
         }
-        
+
         // Make Speed String
         let weightSpeeds = character.race.weightSpeeds;
         if(weightSpeeds == null) {
@@ -621,7 +626,7 @@
                     attributes["repeating_inventory_"+row+"_itemweight"] = (item.definition.bundleSize != 0 ? item.definition.weight / item.definition.bundleSize : item.definition.weight);
                     attributes["repeating_inventory_"+row+"_itemcontent"] = replaceChars(item.definition.description);
                     let _itemmodifiers = 'Item Type: ' + item.definition.type;
-                    if(typeof item.definition.damage === 'object' && item.definition.type !== 'Ammunition') {
+                    if(item.definition.damage != null && item.definition.type !== 'Ammunition') {
                         let properties = '';
                         let finesse = false;
                         let twohanded = false;
@@ -857,9 +862,9 @@
                 class_spells.push(spell);
             });
         }
-        
+
         // calculate final skill bonuses and proficiencies (including initiative), then write results
-        const 
+        const
             PROFICIENCY_NONE = 0,
             PROFICIENCY_HALF = 1,
             PROFICIENCY_HALF_ROUND_UP = 2,
@@ -867,10 +872,10 @@
             PROFICIENCY_EXPERTISE = 4;
         let modifiers = {};
 
-        if (state[state_name][beyond_caller.id].config.imports.proficiencies) {     
+        if (state[state_name][beyond_caller.id].config.imports.proficiencies) {
             for (let half_proficiency of getObjects(character.modifiers, 'type', 'half-proficiency')) {
                 if ((jack_feature !== undefined) &&
-                    (half_proficiency.componentId === jack_feature.id) && 
+                    (half_proficiency.componentId === jack_feature.id) &&
                     // XXX technically, we should get the follwing constant from classes/classFeatures[]/definition
                     (half_proficiency.componentTypeId === 12168134)) {
                     // filter out all jack of all trade mods
@@ -999,7 +1004,7 @@
             'global_save_mod_flag': 1,
             'global_skill_mod_flag': 1,
             'global_attack_mod_flag': 1,
-            'global_damage_mod_flag': 1, 
+            'global_damage_mod_flag': 1,
             'dtype': 'full',
             'init_tiebreaker': initTiebreaker ? '@{dexterity}/100' : '',
             'initiative_style': calculateInitiativeStyle(character),
@@ -1087,7 +1092,7 @@
             case 'wisdom-saving-throws':
             case 'charisma-saving-throws':
                 attribute_bases = [ input.subType.replace('-saving-throws', '_save')];
-                break;            
+                break;
             default:
                 attribute_bases = [ input.subType.replace(/-/g, '_') ];
                 break;
@@ -1176,23 +1181,23 @@
         // these are written first and individually, since they trigger a lot of changes
         let class_update_triggers = [
             'class', // NOTE: MUST be first because of shift below
-            'custom_class', 
-            'cust_classname', 
-            'cust_hitdietype', 
-            'cust_spellcasting_ability', 
-            'cust_spellslots', 
-            'cust_strength_save_prof', 
-            'cust_dexterity_save_prof', 
-            'cust_constitution_save_prof', 
-            'cust_intelligence_save_prof', 
-            'cust_wisdom_save_prof', 
-            'cust_charisma_save_prof', 
-            'subclass', 
-            'multiclass1', 
-            'multiclass1_subclass', 
-            'multiclass2', 
-            'multiclass2_subclass', 
-            'multiclass3', 
+            'custom_class',
+            'cust_classname',
+            'cust_hitdietype',
+            'cust_spellcasting_ability',
+            'cust_spellslots',
+            'cust_strength_save_prof',
+            'cust_dexterity_save_prof',
+            'cust_constitution_save_prof',
+            'cust_intelligence_save_prof',
+            'cust_wisdom_save_prof',
+            'cust_charisma_save_prof',
+            'subclass',
+            'multiclass1',
+            'multiclass1_subclass',
+            'multiclass2',
+            'multiclass2_subclass',
+            'multiclass3',
             'multiclass3_subclass'];
 
         // set class first, everything else is alphabetical
@@ -1213,13 +1218,13 @@
         }
         return items;
     }
-    
+
     const processItem = (character, items, single_attributes, repeating_attributes, total_level) => {
         let nextItem = items.shift();
 
         // check if the write queue was empty
         if (nextItem === undefined) {
-            // do one giant write for all the single attributes, before we create a bunch of attacks 
+            // do one giant write for all the single attributes, before we create a bunch of attacks
             // and other things that depend on stat changes
             setAttrs(object.id, single_attributes);
 
@@ -1357,8 +1362,8 @@
                 onSheetWorkerCompleted(doChunk);
             } else {
                 log('beyond: spells imported, updating spell attack proficiency');
-                onSheetWorkerCompleted(() => { 
-                    updateSpellAttackProf(character, 0); 
+                onSheetWorkerCompleted(() => {
+                    updateSpellAttackProf(character, 0);
                 });
             }
         }
@@ -1582,7 +1587,7 @@
     // ...
     //
     // as general constraint (single modifier with a restriction):
-    // restriction 
+    // restriction
     //
     // as multiple choice (same restriction multiple modifiers):
     // restriction
@@ -1620,7 +1625,7 @@
             return null;
         }
         return first;
-    }   
+    }
 
     const ucFirst = (string) => {
         if(string == null) return string;
@@ -1890,7 +1895,6 @@
             /*let attrName = attrObjs[i].get("current").toString();
              if (regexIndexOf(attrName, / x[0-9]+$/) !== -1)
              attrName = attrName.replace(/ x[0-9]+/,"");
-
              if (attrObjs[i].get("name").indexOf(repeatPrefix) !== -1 && attrObjs[i].get("name").indexOf("_name") !== -1 && attrName === name)
              return attrObjs[i].get("name").substring(repeatPrefix.length,(attrObjs[i].get("name").indexOf("_name")));
              i++;*/
@@ -2027,7 +2031,7 @@
                 description: text,
                 source: 'Class',
                 source_type: current_class.definition.name
-            }        
+            }
             Object.assign(repeating_attributes, createRepeatingTrait(object, trait_docs, index++));
         }
         return index;
@@ -2071,7 +2075,7 @@
                         if (mod !== 0) {
                             single_attributes[`${basename}_flat`] = mod;
                         }
-                        break;                        
+                        break;
                 }
             } else if (saving_throws.indexOf(basename) !== -1) {
                 switch (modifier.proficiency) {
@@ -2097,10 +2101,10 @@
                         // it in the constant for current level style
                         single_attributes[`${basename}_prof`] = '(@{pb})';
                         single_attributes[`${basename}_mod`] = proficiency_bonus + mod;
-                        break;                        
-                } 
+                        break;
+                }
             } else if (modifier.proficiency > 0) {
-                // general proficiency 
+                // general proficiency
                 let type = 'OTHER';
                 if (basename.includes('weapon')) {
                     type = 'WEAPON';
@@ -2113,10 +2117,10 @@
                 }
                 let row = getRepeatingRowIds('proficiencies', 'name', modifier.friendly)[0];
                 repeating_attributes["repeating_proficiencies_" + row + "_name"] = modifier.friendly;
-                repeating_attributes["repeating_proficiencies_" + row + "_prof_type"] = type; 
+                repeating_attributes["repeating_proficiencies_" + row + "_prof_type"] = type;
                 repeating_attributes["repeating_proficiencies_" + row + "_options-flag"] = '0'; // XXX why is this set as string?
             }
             // XXX implement passive-perception bonus ('passiveperceptionmod') etc.
         }
-    }; 
+    };
 })();
