@@ -7,14 +7,12 @@ Roll20 Player Macros
       * [OR using Pathogen:](#or-using-pathogen)
       * [OR using Vundle:](#or-using-vundle)
 * [License](#license)
-Roll Initiative
----------------
+## Roll Initiative
 ```
 /me enters the fight!
 &{template:default}{{name=::Initiative::}}{{Initiative Roll=[[1d20 + @{selected|initiative_bonus} &{tracker}]]}}
 ```
-Attack Rolls
-------------
+## Attack Rolls
 #### Strength Attack
 ```
 /me attacks @{target|foe|character_name}!
