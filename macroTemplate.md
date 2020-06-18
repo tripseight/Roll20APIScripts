@@ -153,34 +153,26 @@ Weapon Attacks
 | Whip |	2 gp |	1d4 slashing |	3 lb. |	Finesse, reach |
 #### Battleaxe
 `&{template:default} {{name=Battleaxe}} {{note=Versatile}} {{damage=[[?{Versitile|One Handed,1d8+@{strength_mod}|Two Handed, 1d10+@{strength_mod}}]] Slashing}}`
-
 #### Flail
-10 gp	1d8 bludgeoning	2 lb.
+`&{template:default} {{name=Flail}} {{Info= -}} {{damage=[[1d8+@{strength_mod}]] Bludgeoning}}`
 #### Glaive
-20 gp	1d10 slashing	6 lb.	Heavy, reach, two-handed
+`&{template:default} {{name=Glaive}} {{Info=Heavy, Reach, Two Handed}} {{damage=[[1d10+@{strength_mod}]] Slashing}}`
 #### Greataxe
-30 gp	1d12 slashing	7 lb.	Heavy, two-handed
+`&{template:default} {{name=Greataxe}} {{Info=Heavy, Two Handed}} {{damage=[[1d12+@{strength_mod}]] Slashing}}`
 #### Greatsword
-50 gp	2d6 slashing	6 lb.	Heavy, two-handed
+`&{template:default} {{name=Greatsword}} {{Info=Heavy, Two Handed}} {{damage=[[2d6+@{strength_mod}]] Slashing}}`
 #### Halberd
-20 gp	1d10 slashing	6 lb.	Heavy, reach, two-handed
-
+`&{template:default} {{name=Halberd}} {{Info=Heavy, Reach, Two Handed}} {{damage=[[1d10+@{strength_mod}]] Bludgeoning}}`
 #### Lance
 `&{template:default} {{name=Lance}} {{Info=Reach}} {{Special=You have disadvantage when you use a lance to attack a target within 5 feet of you. Also, a lance requires two hands to wield when you aren't mounted.}} {{damage=[[1d12+@{strength_mod}]] Piercing}}`
-
 #### Longsword
 `&{template:default} {{name=Longsword}} {{note=Versatile}} {{damage=[[?{Versitile|One Handed,1d8+@{strength_mod}|Two Handed, 1d10+@{strength_mod}}]] Slashing}}`
-
 #### Maul
-
-10 gp	2d6 bludgeoning	10 lb.	Heavy, two-handed
+`&{template:default} {{name=Maul}} {{Info=Heavy, Two Handed}} {{damage=[[2d6+@{strength_mod}]] Bludgeoning}}`
 #### Morningstar
-
-15 gp	1d8 piercing	4 lb.	-
+`&{template:default} {{name=Morningstar}} {{Info= -}} {{range=20-60}} {{damage=[[1d8+@{strength_mod}]] Piercing}}`
 #### Pike
-
-5 gp	1d10 piercing	18 lb.	Heavy, reach, two-handed
-
+`&{template:default} {{name=Pike}} {{Info=Heavy, Reach, Two Handed}} {{damage=[[1d10+@{strength_mod}]] Piercing}}`
 #### Rapier
 `&{template:default} {{name=Rapier}} {{Info=Finesse}} {{damage=[[1d8+@{strength_mod}]] Piercing}}`
 #### or for DEX
@@ -194,7 +186,7 @@ Weapon Attacks
 #### or for DEX
 `&{template:default} {{name=Shortsword}} {{Info=Finesse, Light}} {{damage=[[1d6+@{dexterity_mod}]] Piercing}}`
 #### Trident
-`&{template:default} {{name=Trident}} {{note=Versatile, Thrown, Special}} {{range=20-60}} {{damage=[[?{Versitile|One Handed,1d6+@{strength_mod}|Two Handed, 1d8+@{strength_mod}}]] Piercing}} {{Special=No disadvantage in underwater combat.}}`
+`&{template:default} {{name=Trident}} {{note=Versatile, Thrown, Special}} {{range=20-60}} {{Special=No disadvantage in underwater combat.}} {{damage=[[?{Versitile|One Handed,1d6+@{strength_mod}|Two Handed, 1d8+@{strength_mod}}]] Piercing}}`
 #### War pick
 `&{template:default} {{name=War pick}} {{Info= -}} {{damage=[[1d8+@{strength_mod}]] Piercing}}`
 #### Warhammer
@@ -220,8 +212,7 @@ Weapon Attacks
 `&{template:default} {{name=Heavy Crossbow}} {{Info=Heavy, Loading, Two-handed}} {{range=100-400}} {{damage=[[1d10+@{dexterity_mod}]] Piercing}}`
 #### Longbow
 `&{template:default} {{name=Shortbow}} {{Info=Heavy, Two-Handed}} {{range=150-600}} {{damage=[[1d8+@{dexterity_mod}]] Piercing}}`
-
 #### Net
 ```
-&{template:default} {{name=Net}} {{Info=Special, Thrown}} {{range=5-15}} {{damage=none}} {{Special=A Large or smaller creature hit by a net is restrained until it is freed. A net has no effect on creatures that are formless, or creatures that are Huge or larger. A creature can use its action to make a DC 10 Strength check, freeing itself or another creature within its reach on a success. Dealing 5 slashing damage to the net (AC 10) also frees the creature without harming it, ending the effect and destroying the net. -- When you use an action, bonus action, or reaction to attack with a net, you can make only one attack regardless of the number of attacks you can normally make.}}
+&{template:default} {{name=Net}} {{Info=Special, Thrown}} {{range=5-15}} {{Special=A Large or smaller creature hit by a net is restrained until it is freed. A net has no effect on creatures that are formless, or creatures that are Huge or larger. A creature can use its action to make a DC 10 Strength check, freeing itself or another creature within its reach on a success. Dealing 5 slashing damage to the net (AC 10) also frees the creature without harming it, ending the effect and destroying the net. -- When you use an action, bonus action, or reaction to attack with a net, you can make only one attack regardless of the number of attacks you can normally make.}} {{damage=none}}
 ```
