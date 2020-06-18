@@ -1,13 +1,11 @@
 Roll20 Macros
 =============
-
 Roll Initiative
 ---------------
 ```
 /me enters the fight!
 &{template:default}{{name=::Initiative::}}{{Initiative Roll=[[1d20 + @{selected|initiative_bonus} &{tracker}]]}}
 ```
-
 Attack Rolls
 ------------
 #### Strength Attack
@@ -77,59 +75,61 @@ Difficulty Checks
 /me makes a charisma difficulty check
 &{template:default}{{name=::Charisma DC::}} {{[[1d20+ @{selected|charisma_mod}]]}} {{[[1d20+ @{selected|charisma_mod}]]}}
 ```
-
 Weapon Attacks
 --------------
 ### Simple Melee
-
+| Weapon        | Cost           | Damage  | Weight  | Properties       |
+| ------------- |:--------------:| ------- | ------- | :--------------: |
+| Club | 1 sp | 1d4 bludgeoning | 2 lb. | Light |
+| Dagger	| 2 gp |	1d4 piercing | 1 lb. | Finesse, light, thrown (range 20/60) |
+| Weapon | Cost | Damage | Weight | Properties |
+| Greatclub |	2 sp |	1d8 bludgeoning |	10 lb. |	Two-handed |
+| Handaxe |	5 gp |	1d6 slashing |	2 lb. |	Light, thrown (range 20/60) |
+| Javelin |	5 sp |	1d6 piercing |	2 lb. |	Thrown (range 30/120) |
+| Light hammer |	2 gp |	1d4 bludgeoning |	2 lb. |	Light, thrown (range 20/60) |
+| Mace |	5 gp |	1d6 bludgeoning |	4 lb. |	- |
+| Quarterstaff |	2 sp |	1d6 bludgeoning |	4 lb. |	Versatile (1d8) |
+| Sickle |	1 gp |	1d4 slashing |	2 lb. |	Light |
+| Spear |	1 gp |	1d6 piercing |	3 lb. |	Thrown (range 20/60), versatile (1d8) |
 #### Club
 `&{template:default} {{name=Club}} {{Info=Light}} {{damage=[[1d4+@{strength_mod}]] Bludgeoning}}`
 #### Dagger
 `&{template:default} {{name=Dagger}} {{Info=Main Hand, Finesse, Light, Thrown}} {{range=20-60}} {{damage=[[1d8+@{dexterity_mod}]] Piercing}}`
 #### Greatclub
-&{template:default} {{name=Greatlub}} {{Info=Two Handed}} {{damage=[[1d8+@{strength_mod}]] Bludgeoning}}
-
+`&{template:default} {{name=Greatlub}} {{Info=Two Handed}} {{damage=[[1d8+@{strength_mod}]] Bludgeoning}}`
 #### Handaxe
-&{template:default} {{name=Handaxe}} {{Info=Light, Thrown}} {{range=20-60}} {{damage=[[1d6+@{strength_mod}]] Slashing}}
-
+`&{template:default} {{name=Handaxe}} {{Info=Light, Thrown}} {{range=20-60}} {{damage=[[1d6+@{strength_mod}]] Slashing}}`
 #### Javelin
-&{template:default} {{name=Javelin}} {{Info=Thrown}} {{range=30-120}} {{damage=[[1d6+@{dexterity_mod}]] Piercing}}
-
+`&{template:default} {{name=Javelin}} {{Info=Thrown}} {{range=30-120}} {{damage=[[1d6+@{dexterity_mod}]] Piercing}}`
 #### Light Hammer
-&{template:default} {{name=Hammer, Light}} {{Info=Light, Thrown}} {{range=20-60}} {{damage=[[1d4+@{strength_mod}]] Bludgeoning}}
-
+`&{template:default} {{name=Hammer, Light}} {{Info=Light, Thrown}} {{range=20-60}} {{damage=[[1d4+@{strength_mod}]] Bludgeoning}}`
 #### Mace
-&{template:default} {{name=Mace}} {{Info= }} {{damage=[[1d6+@{strength_mod}]] Bludgeoning}}
-
+`&{template:default} {{name=Mace}} {{Info= }} {{damage=[[1d6+@{strength_mod}]] Bludgeoning}}`
 #### Quarterstaff
 `&{template:default} {{name=Quarterstaff}} {{note=Simple, Versatile}} {{damage=[[?{Versitile|One Handed,1d6+@{strength_mod}|Two Handed, 1d8+@{strength_mod}}]] Piercing}}`
 ##### or for DEX
 `&{template:default} {{name=Quarterstaff}} {{note=Simple, Versatile}} {{damage=[[?{Versitile|One Handed,1d6+@{dexterity_mod}|Two Handed, 1d8+@{dexterity_mod}}]] Bludgeoning}}`
-
 #### Spear
-&{template:default} {{name=Spear}} {{note=Simple, Versatile, Thrown}} {{range=20-60}} {{damage=[[?{Versitile|One Handed,1d6+@{strength_mod}|Two Handed, 1d8+@{strength_mod}}]] Piercing}}
+`&{template:default} {{name=Spear}} {{note=Simple, Versatile, Thrown}} {{range=20-60}} {{damage=[[?{Versitile|One Handed,1d6+@{strength_mod}|Two Handed, 1d8+@{strength_mod}}]] Piercing}}`
 ##### or for DEX
-&{template:default} {{name=Spear}} {{note=Simple, Versatile, Thrown}} {{range=20-60}} {{damage=[[?{Versitile|One Handed,1d6+@{dexterity_mod}|Two Handed, 1d8+@{dexterity_mod}}]] Piercing}}
+`&{template:default} {{name=Spear}} {{note=Simple, Versatile, Thrown}} {{range=20-60}} {{damage=[[?{Versitile|One Handed,1d6+@{dexterity_mod}|Two Handed, 1d8+@{dexterity_mod}}]] Piercing}}`
 
 ### Simple Range
-
 #### Crossbow, Light
-&{template:default} {{name=Crossbow, Light}} {{Info=Two-Handed, Loading}} {{range=80-320}} {{damage=[[1d8+@{dexterity_mod}]] Piercing}}
-
+`&{template:default} {{name=Crossbow, Light}} {{Info=Two-Handed, Loading}} {{range=80-320}} {{damage=[[1d8+@{dexterity_mod}]] Piercing}}`
 #### Dart
-&{template:default} {{name=Dart}} {{Info=Finesse, Thrown}} {{range=20-60}} {{damage=[[1d4+@{dexterity_mod}]] Piercing}}
-
+`&{template:default} {{name=Dart}} {{Info=Finesse, Thrown}} {{range=20-60}} {{damage=[[1d4+@{dexterity_mod}]] Piercing}}`
 #### Shortbow
-&{template:default} {{name=Shortbow}} {{Info=Two-Handed}} {{range=80-320}} {{damage=[[1d6+@{dexterity_mod}]] Piercing}}
-
+`&{template:default} {{name=Shortbow}} {{Info=Two-Handed}} {{range=80-320}} {{damage=[[1d6+@{dexterity_mod}]] Piercing}}`
 #### Sling
-&{template:default} {{name=Sling}} {{range=30-120}} {{damage=[[1d4+@{dexterity_mod}]] Bludgeoning}}
+`&{template:default} {{name=Sling}} {{range=30-120}} {{damage=[[1d4+@{dexterity_mod}]] Bludgeoning}}`
 
 ### Martial Melee
 #### Battleaxe
-&{template:default} {{name=Battleaxe}} {{note=Versatile}} {{damage=[[?{Versitile|One Handed,1d8+@{strength_mod}|Two Handed, 1d10+@{strength_mod}}]] Slashing}}
+`&{template:default} {{name=Battleaxe}} {{note=Versatile}} {{damage=[[?{Versitile|One Handed,1d8+@{strength_mod}|Two Handed, 1d10+@{strength_mod}}]] Slashing}}`
 
-#### Flail	10 gp	1d8 bludgeoning	2 lb.
+#### Flail
+10 gp	1d8 bludgeoning	2 lb.
 #### Glaive	20 gp	1d10 slashing	6 lb.	Heavy, reach, two-handed
 #### Greataxe	30 gp	1d12 slashing	7 lb.	Heavy, two-handed
 #### Greatsword	50 gp	2d6 slashing	6 lb.	Heavy, two-handed
