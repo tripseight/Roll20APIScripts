@@ -166,10 +166,10 @@ Weapon Attacks
 20 gp	1d10 slashing	6 lb.	Heavy, reach, two-handed
 
 #### Lance
-&{template:default} {{name=Lance}} {{Info=Reach}} {{Special=You have disadvantage when you use a lance to attack a target within 5 feet of you. Also, a lance requires two hands to wield when you aren't mounted.}} {{damage=[[1d12+@{strength_mod}]] Piercing}}
+`&{template:default} {{name=Lance}} {{Info=Reach}} {{Special=You have disadvantage when you use a lance to attack a target within 5 feet of you. Also, a lance requires two hands to wield when you aren't mounted.}} {{damage=[[1d12+@{strength_mod}]] Piercing}}`
 
 #### Longsword
-&{template:default} {{name=Longsword}} {{note=Versatile}} {{damage=[[?{Versitile|One Handed,1d8+@{strength_mod}|Two Handed, 1d10+@{strength_mod}}]] Slashing}}
+`&{template:default} {{name=Longsword}} {{note=Versatile}} {{damage=[[?{Versitile|One Handed,1d8+@{strength_mod}|Two Handed, 1d10+@{strength_mod}}]] Slashing}}`
 
 #### Maul
 
@@ -182,28 +182,27 @@ Weapon Attacks
 5 gp	1d10 piercing	18 lb.	Heavy, reach, two-handed
 
 #### Rapier
-&{template:default} {{name=Rapier}} {{Info=Finesse}} {{damage=[[1d8+@{strength_mod}]] Piercing}}
-or for DEX
-&{template:default} {{name=Rapier}} {{Info=Finesse}} {{damage=[[1d8+@{dexterity_mod}]] Piercing}}
-
-#### Scimitar
-&{template:default} {{name=Scimitar}} {{Info=Finesse, Light}} {{damage=[[1d6+@{strength_mod}]] Slashing}}
-##### or for DEX
-&{template:default} {{name=Scimitar}} {{Info=Finesse, Light}} {{damage=[[1d6+@{dexterity_mod}]] Slashing}}
-
-#### Shortsword
-&{template:default} {{name=Shortsword}} {{Info=Finesse, Light}} {{damage=[[1d6+@{strength_mod}]] Piercing}}
+`&{template:default} {{name=Rapier}} {{Info=Finesse}} {{damage=[[1d8+@{strength_mod}]] Piercing}}`
 #### or for DEX
-&{template:default} {{name=Shortsword}} {{Info=Finesse, Light}} {{damage=[[1d6+@{dexterity_mod}]] Piercing}}
-
+`&{template:default} {{name=Rapier}} {{Info=Finesse}} {{damage=[[1d8+@{dexterity_mod}]] Piercing}}`
+#### Scimitar
+`&{template:default} {{name=Scimitar}} {{Info=Finesse, Light}} {{damage=[[1d6+@{strength_mod}]] Slashing}}`
+##### or for DEX
+`&{template:default} {{name=Scimitar}} {{Info=Finesse, Light}} {{damage=[[1d6+@{dexterity_mod}]] Slashing}}`
+#### Shortsword
+`&{template:default} {{name=Shortsword}} {{Info=Finesse, Light}} {{damage=[[1d6+@{strength_mod}]] Piercing}}`
+#### or for DEX
+`&{template:default} {{name=Shortsword}} {{Info=Finesse, Light}} {{damage=[[1d6+@{dexterity_mod}]] Piercing}}`
 #### Trident
-5 gp	1d6 piercing	4 lb.	Thrown (range 20/60), versatile (1d8)
+`&{template:default} {{name=Trident}} {{note=Versatile, Thrown, Special}} {{range=20-60}} {{damage=[[?{Versitile|One Handed,1d6+@{strength_mod}|Two Handed, 1d8+@{strength_mod}}]] Piercing}} {{Special=No disadvantage in underwater combat.}}`
 #### War pick
-5 gp	1d8 piercing	2 lb.	-
+`&{template:default} {{name=War pick}} {{Info= -}} {{damage=[[1d8+@{strength_mod}]] Piercing}}`
 #### Warhammer
-15 gp	1d8 bludgeoning	2 lb.	Versatile (1d10)
+`&{template:default} {{name=Warhammer}} {{note=Versatile}} {{damage=[[?{Versitile|One Handed,1d8+@{strength_mod}|Two Handed, 1d10+@{strength_mod}}]] Bludgeoning}}`
 #### Whip
-1d4 slashing	3 lb.	Finesse, reach
+`&{template:default} {{name=Whip}} {{Info=Finesse, Reach}} {{damage=[[1d4+@{strength_mod}]] Slashing}}`
+#### or for DEX
+`&{template:default} {{name=Whip}} {{Info=Finesse, Reach}} {{damage=[[1d4+@{dexterity_mod}]] Slashing}}`
 
 ### Martial Ranged
 | Weapon        | Cost           | Damage  | Weight  | Properties       |
