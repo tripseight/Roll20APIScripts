@@ -1,58 +1,82 @@
 Roll20 Macros
 =============
+
+Roll Initiative
+---------------
+```
 /me enters the fight!
 &{template:default}{{name=::Initiative::}}{{Initiative Roll=[[1d20 + @{selected|initiative_bonus} &{tracker}]]}}
+```
 
-
-------Attack Rolls
-
-Strength Attack
+Attack Rolls
+------------
+####Strength Attack
+```
 /me attacks @{target|foe|character_name}!
 &{template:default}{{name=::To Hit::}}{{attack=@{selected|token_name} [[1d20+ @{selected|strength_mod}]] vs. @{target|foe|npc_AC} AC}}{{Second Roll=@{selected|token_name} [[1d20+ @{selected|strength_mod}]] vs. @{target|foe|npc_AC} AC}}
-
-Dexterity Attack
+```
+####Dexterity Attack
+```
 /me attacks @{target|foe|character_name}!
 &{template:default}{{name=::To Hit::}}{{attack=@{selected|token_name} [[1d20+ @{selected|dexterity_mod}]] vs. @{target|foe|npc_AC} AC}}{{Second Roll=@{selected|token_name} [[1d20+ @{selected|dexterity_mod}]] vs. @{target|foe|npc_AC} AC}}
-
-Strength + Proficiency Attack
+```
+####Strength + Proficiency Attack
+```
 /me attacks @{target|foe|character_name}!
 &{template:default}{{name=::To Hit::}}{{attack=@{selected|token_name} [[1d20+ @{selected|strength_mod} + @{selected|pb}]] vs. @{target|foe|npc_AC} AC}}{{Second Roll=@{selected|token_name} [[1d20+ @{selected|strength_mod} + @{selected|pb}]] vs. @{target|foe|npc_AC} AC}}
-
-Dexterity + Proficiency Attack
+```
+####Dexterity + Proficiency Attack
+```
 /me attacks @{target|foe|character_name}!
 &{template:default}{{name=::To Hit::}}{{attack=@{selected|token_name} [[1d20+ @{selected|dexterity_mod} + @{selected|pb}]] vs. @{target|foe|npc_AC} AC}}{{Second Roll=@{selected|token_name} [[1d20+ @{selected|dexterity_mod} + @{selected|pb}]] vs. @{target|foe|npc_AC} AC}}
-
-Intelligence + Proficiency Attack
+```
+####Intelligence + Proficiency Attack
+```
 /me attacks @{target|foe|character_name}!
 &{template:default}{{name=::To Hit::}}{{attack=@{selected|token_name} [[1d20+ @{selected|intelligence_mod} + @{selected|pb}]] vs. @{target|foe|npc_AC} AC}}{{Second Roll=@{selected|token_name} [[1d20+ @{selected|intelligence_mod} + @{selected|pb}]] vs. @{target|foe|npc_AC} AC}}
-
-Wisdom + Proficiency Attack
+```
+####Wisdom + Proficiency Attack
+```
 /me attacks @{target|foe|character_name}!
 &{template:default}{{name=::To Hit::}}{{attack=@{selected|token_name} [[1d20+ @{selected|wisdom_mod} + @{selected|pb}]] vs. @{target|foe|npc_AC} AC}}{{Second Roll=@{selected|token_name} [[1d20+ @{selected|wisdom_mod} + @{selected|pb}]] vs. @{target|foe|npc_AC} AC}}
-
-Charisma + Proficiency Attack
+```
+####Charisma + Proficiency Attack
+```
 /me attacks @{target|foe|character_name}!
 &{template:default}{{name=::To Hit::}}{{attack=@{selected|token_name} [[1d20+ @{selected|charisma_mod} + @{selected|pb}]] vs. @{target|foe|npc_AC} AC}}{{Second Roll=@{selected|token_name} [[1d20+ @{selected|charisma_mod} + @{selected|pb}]] vs. @{target|foe|npc_AC} AC}}
-
-------Difficulty Checks
-
+```
+Difficulty Checks
+-----------------
+####Strength DC
+```
 /me makes a strength difficulty check
 &{template:default}{{name=::Strength DC::}} {{[[1d20+ @{selected|strength_mod}]]}} {{[[1d20+ @{selected|strength_mod}]]}}
-
+```
+####Dexterity DC
+```
 /me makes a dexterity difficulty check
 &{template:default}{{name=::Dexterity DC::}} {{[[1d20+ @{selected|dexterity_mod}]]}} {{[[1d20+ @{selected|dexterity_mod}]]}}
-
+```
+####Constitution DC
+```
 /me makes a constitution difficulty check
 &{template:default}{{name=::Constitution DC::}} {{[[1d20+ @{selected|constitution_mod}]]}} {{[[1d20+ @{selected|constitution_mod}]]}}
-
+```
+####Intelligence DC
+```
 /me makes a intelligence difficulty check
 &{template:default}{{name=::Intelligence DC::}} {{[[1d20+ @{selected|intelligence_mod}]]}} {{[[1d20+ @{selected|intelligence_mod}]]}}
-
+```
+####Wisdom DC
+```
 /me makes a wisdom difficulty check
 &{template:default}{{name=::Wisdom DC::}} {{[[1d20+ @{selected|wisdom_mod}]]}} {{[[1d20+ @{selected|wisdom_mod}]]}}
-
+```
+####Charisma DC
+```
 /me makes a charisma difficulty check
 &{template:default}{{name=::Charisma DC::}} {{[[1d20+ @{selected|charisma_mod}]]}} {{[[1d20+ @{selected|charisma_mod}]]}}
+```
 
 ------Weapon Attacks
 ---Simple Melee
