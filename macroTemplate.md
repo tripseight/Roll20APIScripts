@@ -79,7 +79,7 @@ Weapon Attacks
 --------------
 ### Simple Melee
 | Weapon        | Cost           | Damage  | Weight  | Properties       |
-| ------------- |:--------------:| ------- | ------- | :--------------: |
+| ------------- |:--------------:| ------- | :-------: | ---------------- |
 | Club | 1 sp | 1d4 bludgeoning | 2 lb. | Light |
 | Dagger	| 2 gp |	1d4 piercing | 1 lb. | Finesse, light, thrown (range 20/60) |
 | Weapon | Cost | Damage | Weight | Properties |
@@ -115,6 +115,10 @@ Weapon Attacks
 `&{template:default} {{name=Spear}} {{note=Simple, Versatile, Thrown}} {{range=20-60}} {{damage=[[?{Versitile|One Handed,1d6+@{dexterity_mod}|Two Handed, 1d8+@{dexterity_mod}}]] Piercing}}`
 
 ### Simple Range
+| Crossbow, light |	25 gp |	1d8 piercing |	5 lb. |	Ammunition (range 80/320), loading, two-handed |
+| Dart |	5 cp |	1d4 piercing |	1/4 lb. |	Finesse, thrown (range 20/60) |
+| Shortbow |	25 gp |	1d6 piercing |	2 lb. |	Ammunition (range 80/320), two-handed |
+| Sling |	1 sp |	1d4 bludgeoning |	- |	Ammunition (range 30/120) |
 #### Crossbow, Light
 `&{template:default} {{name=Crossbow, Light}} {{Info=Two-Handed, Loading}} {{range=80-320}} {{damage=[[1d8+@{dexterity_mod}]] Piercing}}`
 #### Dart
@@ -125,6 +129,24 @@ Weapon Attacks
 `&{template:default} {{name=Sling}} {{range=30-120}} {{damage=[[1d4+@{dexterity_mod}]] Bludgeoning}}`
 
 ### Martial Melee
+Battleaxe	10 gp	1d8 slashing	4 lb.	Versatile (1d10)
+Flail	10 gp	1d8 bludgeoning	2 lb.	-
+Glaive	20 gp	1d10 slashing	6 lb.	Heavy, reach, two-handed
+Greataxe	30 gp	1d12 slashing	7 lb.	Heavy, two-handed
+Greatsword	50 gp	2d6 slashing	6 lb.	Heavy, two-handed
+Halberd	20 gp	1d10 slashing	6 lb.	Heavy, reach, two-handed
+Lance	10 gp	1d12 piercing	6 lb.	Reach, special
+Longsword	15 gp	1d8 slashing	3 lb.	Versatile (1d10)
+Maul	10 gp	2d6 bludgeoning	10 lb.	Heavy, two-handed
+Morningstar	15 gp	1d8 piercing	4 lb.	-
+Pike	5 gp	1d10 piercing	18 lb.	Heavy, reach, two-handed
+Rapier	25 gp	1d8 piercing	2 lb.	Finesse
+Scimitar	25 gp	1d6 slashing	3 lb.	Finesse, light
+Shortsword	10 gp	1d6 piercing	2 lb.	Finesse, light
+Trident	5 gp	1d6 piercing	4 lb.	Thrown (range 20/60), versatile (1d8)
+War pick	5 gp	1d8 piercing	2 lb.	-
+Warhammer	15 gp	1d8 bludgeoning	2 lb.	Versatile (1d10)
+Whip	2 gp	1d4 slashing	3 lb.	Finesse, reach
 #### Battleaxe
 `&{template:default} {{name=Battleaxe}} {{note=Versatile}} {{damage=[[?{Versitile|One Handed,1d8+@{strength_mod}|Two Handed, 1d10+@{strength_mod}}]] Slashing}}`
 
