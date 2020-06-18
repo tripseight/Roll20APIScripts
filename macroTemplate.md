@@ -10,12 +10,12 @@ Roll Initiative
 
 Attack Rolls
 ------------
-####Strength Attack
+#### Strength Attack
 ```
 /me attacks @{target|foe|character_name}!
 &{template:default}{{name=::To Hit::}}{{attack=@{selected|token_name} [[1d20+ @{selected|strength_mod}]] vs. @{target|foe|npc_AC} AC}}{{Second Roll=@{selected|token_name} [[1d20+ @{selected|strength_mod}]] vs. @{target|foe|npc_AC} AC}}
 ```
-####Dexterity Attack
+#### Dexterity Attack
 ```
 /me attacks @{target|foe|character_name}!
 &{template:default}{{name=::To Hit::}}{{attack=@{selected|token_name} [[1d20+ @{selected|dexterity_mod}]] vs. @{target|foe|npc_AC} AC}}{{Second Roll=@{selected|token_name} [[1d20+ @{selected|dexterity_mod}]] vs. @{target|foe|npc_AC} AC}}
@@ -47,12 +47,12 @@ Attack Rolls
 ```
 Difficulty Checks
 -----------------
-####Strength DC
+#### Strength DC
 ```
 /me makes a strength difficulty check
 &{template:default}{{name=::Strength DC::}} {{[[1d20+ @{selected|strength_mod}]]}} {{[[1d20+ @{selected|strength_mod}]]}}
 ```
-####Dexterity DC
+#### Dexterity DC
 ```
 /me makes a dexterity difficulty check
 &{template:default}{{name=::Dexterity DC::}} {{[[1d20+ @{selected|dexterity_mod}]]}} {{[[1d20+ @{selected|dexterity_mod}]]}}
