@@ -1,4 +1,4 @@
-Roll20 Macros
+Roll20 Player Macros
 =============
 Roll Initiative
 ---------------
