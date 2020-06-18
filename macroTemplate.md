@@ -1,8 +1,5 @@
 Roll20 Macros
 =============
-
-Roll-Initiative
----------------
 /me enters the fight!
 &{template:default}{{name=::Initiative::}}{{Initiative Roll=[[1d20 + @{selected|initiative_bonus} &{tracker}]]}}
 
