@@ -214,17 +214,15 @@ or for DEX
 | Longbow |	50 gp |	1d8 piercing |	2 lb. |	Ammunition (range 150/600), heavy, two-handed |
 |Net |	1 gp |	- |	3 lb. |	Special, thrown (range 5/15) |
 #### Blowgun
-10 gp	1 piercing	1 lb.	Ammunition (range 25/100), loading
+`&{template:default} {{name=Blowgun}} {{Info=Loading}} {{range=25-100}} {{damage=1 Piercing}}`
 #### Crossbow, hand
-75 gp	1d6 piercing	3 lb.	Ammunition (range 30/120), light, loading
+`&{template:default} {{name=Hand Crossbow}} {{Info=Light, Loading}} {{range=30-120}} {{damage=[[1d6+@{dexterity_mod}]] Piercing}}`
 #### Crossbow, heavy
-50 gp	1d10 piercing	18 lb.	Ammunition (range 100/400), heavy, loading, two-handed
-
+`&{template:default} {{name=Heavy Crossbow}} {{Info=Heavy, Loading, Two-handed}} {{range=100-400}} {{damage=[[1d10+@{dexterity_mod}]] Piercing}}`
 #### Longbow
-&{template:default} {{name=Shortbow}} {{Info=Heavy, Two-Handed}} {{range=150-600}} {{damage=[[1d8+@{dexterity_mod}]] Piercing}}
+`&{template:default} {{name=Shortbow}} {{Info=Heavy, Two-Handed}} {{range=150-600}} {{damage=[[1d8+@{dexterity_mod}]] Piercing}}`
 
 #### Net
 ```
 &{template:default} {{name=Net}} {{Info=Special, Thrown}} {{range=5-15}} {{damage=A Large or smaller creature hit by a net is restrained until it is freed. A net has no effect on creatures that are formless, or creatures that are Huge or larger. A creature can use its action to make a DC 10 Strength check, freeing itself or another creature within its reach on a success. Dealing 5 slashing damage to the net (AC 10) also frees the creature without harming it, ending the effect and destroying the net. -- When you use an action, bonus action, or reaction to attack with a net, you can make only one attack regardless of the number of attacks you can normally make.}}
 ```
-	1 gp	-	3 lb.	Special, thrown (range 5/15)
