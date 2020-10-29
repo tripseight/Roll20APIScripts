@@ -2,11 +2,6 @@ Roll20 Player Macros
 =============
 ###### Table of Contents
 * [Roll Initiative](#roll-initiative)
-* [Screenshot](#screenshot)
-* [Installation](#installation)
-      * [OR using Pathogen:](#or-using-pathogen)
-      * [OR using Vundle:](#or-using-vundle)
-* [License](#license)
 ## Roll Initiative
 ```
 /me enters the fight!
